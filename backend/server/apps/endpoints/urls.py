@@ -8,12 +8,12 @@ from apps.endpoints.views import MLAlgorithmStatusViewSet
 from apps.endpoints.views import MLRequestViewSet
 
 router = DefaultRouter(trailing_slash=False)
-router.register(r'endpoints', EndpointViewSet, basename='endpoints')
-router.register(r'mlalgorithms', MLAlgorithmViewSet, basename='mlalgorithms')
-router.register(r'mlalgorithmstatuses', MLAlgorithmStatusViewSet, basename='mlalgorithmstatuses')
-router.register(r'mlrequests', MLRequestViewSet, basename='mlrequests')
+router.register(r"endpoints", EndpointViewSet, basename="endpoints")
+router.register(r"mlalgorithms", MLAlgorithmViewSet, basename="mlalgorithms")
+router.register(r"mlalgorithmstatuses", MLAlgorithmStatusViewSet, basename="mlalgorithmstatuses")
+router.register(r"mlrequests", MLRequestViewSet, basename="mlrequests")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^api/v1/', include(router.urls)),
+    re_path(r"^api/v1/", include(router.urls)),  # ← changed url() to re_path()
 ]
